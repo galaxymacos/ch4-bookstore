@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # What?
     # Third party apps
     "crispy_forms",
     "crispy_bootstrap5",
@@ -52,7 +53,12 @@ INSTALLED_APPS = [
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT = "home"
 SITE_ID = 1
-ACCOUNT_SESSION_REMEMBER = True # keep the user logged in
+ACCOUNT_SESSION_REMEMBER = True  # keep the user logged in
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # Let user enter password only once when signing up
+ACCOUNT_USERNAME_REQUIRED = False  # Don't require username
+ACCOUNT_AUTHENTICATION_METHOD = "email"  # Login with email
+ACCOUNT_EMAIL_REQUIRED = True  # Require email
+ACCOUNT_UNIQUE_EMAIL = True  # Unique email
 
 AUTH_USER_MODEL = "accounts.CustomUser"     # Tell Django to use the custom user model
 
